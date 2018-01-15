@@ -17,6 +17,10 @@
       transform-origin: top;
     }
   }
+
+  img {
+    max-width:300px;
+  }
 }
 
 .description-wrapper {
@@ -29,7 +33,7 @@
   background-color: rgba(34, 252, 34, 0.473);
   text-align: center;
   width: 100%;
-  margin-bottom:10px;
+  top: 0;
   p{
     display:inline-block;
     color: white;
@@ -41,6 +45,10 @@
     float: right;
     margin-top:5px;
   }
+}
+
+.container-fluid {
+  margin-top: 49px;
 }
 
 @keyframes on-hover{

@@ -3,12 +3,12 @@
   <a class="btn btn-primary" (click)="goToUpload()">Upload</a>
 </div>
 
-<ng-container *ngFor="let img of posts" class="container-fluid">
-  <div class="image-wrapper" (click)="openImage(img)">
+<div class="container-fluid">
+  <div *ngFor="let img of posts" class="image-wrapper">
     <h3>{{img?.title}}</h3>
     <img src="{{img?.content}}">
     <div class="description-wrapper">
       {{img?.description}}
     </div>
   </div>
-</ng-container>
+</div>

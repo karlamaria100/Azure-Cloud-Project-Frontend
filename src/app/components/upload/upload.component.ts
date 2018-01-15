@@ -3,6 +3,7 @@ import { PostService } from 'app/services/post.service';
 import { PostModel } from 'app/post.model';
 import {Http, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs/Observable";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-upload',
@@ -17,7 +18,7 @@ export class UploadComponent implements OnInit {
 
  // constructor(private postSVC: PostService) { }
   public text: string;
-  constructor( private http: Http ){
+  constructor( private http: Http, private router: Router ){
     this.text = 'Upload Image';
   }
 
@@ -66,11 +67,12 @@ export class UploadComponent implements OnInit {
 
 
     formData.append('file', this.image );
-    return this.http.post('http://192.168.0.100:8086/ProiectCuBaietii/posts/addPost', formData)
+    return this.http.post('http://52.234.128.222:8080/posts/addPost', formData)
       .map(response =>response.json()).subscribe(
         result=>{
           this.text="image uploaded successfully";
           console.log("image uploaded");
+          this.router.navigate(['/']);
         },
         error=>{
           this.text="Some Error in image Uploading";

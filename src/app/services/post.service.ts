@@ -14,28 +14,21 @@ export class PostService {
 
   public getAll(): Observable<PostModel[]>{
     let people$ = this.http
-      .get(`http://192.168.0.100:8086/ProiectCuBaietii/posts/getAllPosts`, {headers: this.getHeaders()})
+      .get('http://52.234.128.222:8080/posts/getAllPosts', {headers: this.getHeaders()})
       .map(this.mapPosts);
       return people$;
   }
 
   private getHeaders(): Headers {
-    // I included these headers because otherwise FireFox
-    // will request text/html instead of application/json
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     return headers;
   }
 
   private mapPosts(response: Response): PostModel[] {
-    // return response.json().results.map(this.toPost);
-    return this.toPost(response.json().result);
-  }
-
- // private toPost(r: any): PostModel[] {
-  toPost(r) {
-  const posts: PostModel[] = [];
-    for (let i = 0; i < r.posts.size; i++){
+    const r = response.json();
+    const posts: PostModel[] = [];
+    for (let i = 0; i < r.posts.length; i++){
       let post = <PostModel>({
         id: Number.parseInt(r.posts[i].id),
         description: r.posts[i].description,
@@ -45,14 +38,6 @@ export class PostService {
       });
         posts.push(post);
       }
-
-    // let post = <PostModel>({
-    //   id: Number.parseInt(r.id),
-    //   description: r.description,
-    //   title: r.title,
-    //   content: r.content,
-    //   like: Number.parseInt(r.like)
-    // });
     return posts;
   }
 
