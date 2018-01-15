@@ -1,0 +1,11 @@
+<label>Title:</label>
+<input type="text" class="input-sm" [(ngModel)]="title"><br />
+<label>Description:</label>
+<input type="text" class="input-lg" [(ngModel)]="desc">
+<div class="center-block">
+  <input type="file"  accept="image/*" class="btn btn-default btn-file"  (change)="fileChangeEvent($event)"  style=" width:100%" >
+</div>
+<!--<input type="file" [(ngModel)]="image">-->
+<!--<button class="btn btn-primary" (click)="upload()">Upload</button>-->
+
+<button (click)="uploadimage()" class="btn btn-success btn-lg " style="width: 300px; ">{{text}}</button>

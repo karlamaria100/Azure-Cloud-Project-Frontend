@@ -1,0 +1,14 @@
+<div class="top-bar">
+  <p>Nume Proiect</p>
+  <a class="btn btn-primary" (click)="goToUpload()">Upload</a>
+</div>
+
+<ng-container *ngFor="let img of posts" class="container-fluid">
+  <div class="image-wrapper" (click)="openImage(img)">
+    <h3>{{img?.title}}</h3>
+    <img src="{{img?.content}}">
+    <div class="description-wrapper">
+      {{img?.description}}
+    </div>
+  </div>
+</ng-container>

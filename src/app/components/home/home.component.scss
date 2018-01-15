@@ -1,0 +1,62 @@
+.image-wrapper{
+  display: inline-block;
+  margin-left: 100px;
+
+  &:hover {
+    animation-name: on-hover;
+    animation-duration: 200ms;
+    animation-fill-mode: both;
+    transform-origin: top;
+
+    .description-wrapper {
+      display: flex;
+      animation-name: appear;
+      animation-duration: 200ms;
+      animation-delay: 200ms;
+      animation-fill-mode: both;
+      transform-origin: top;
+    }
+  }
+}
+
+.description-wrapper {
+  display: none;
+}
+
+.top-bar {
+  position: fixed;
+  display: block;
+  background-color: rgba(34, 252, 34, 0.473);
+  text-align: center;
+  width: 100%;
+  margin-bottom:10px;
+  p{
+    display:inline-block;
+    color: white;
+    font-size:large;
+    font-family:initial;
+    margin-top:10px;
+  }
+  .btn {
+    float: right;
+    margin-top:5px;
+  }
+}
+
+@keyframes on-hover{
+  from {
+    transform: scale(1,1);
+  }
+  to {
+    transform: scale(1.5,1.5);
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: scale(1,0);
+  }
+  to {
+    transform: scale(1,1);
+  }
+}
